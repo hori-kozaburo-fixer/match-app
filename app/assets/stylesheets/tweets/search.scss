@@ -1,0 +1,52 @@
+.search {
+  &_head {
+    height: 5vh;
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    &_post{
+      height: 5vh;
+      position: fixed;
+      right: 30px;
+      top: 85px;
+      &_btn {
+        display: inline-block;
+        text-decoration: none;
+        background: darkorange;
+        color: #FFF;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        text-align: center;
+        overflow: hidden;
+        box-shadow: 0px 0px 0px 5px darkorange;
+        transition: .4s;
+        position: relative;
+        &:hover{
+          text-decoration: none;
+          color: white;
+          background: orange;
+          box-shadow: 0px 0px 0px 5px orange;
+        }
+        &_icon {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          -webkit-transform : translate(-50%,-50%);
+          transform : translate(-50%,-50%);
+        }
+      }
+    }
+    &_search {
+      width: 40%;
+      padding-left: 10%;
+      display: flex;
+    }
+  }
+  &_tweets {
+    padding-top: 30px;
+    position: relative;
+
+  }
+}

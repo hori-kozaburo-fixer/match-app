@@ -1,0 +1,26 @@
+.link{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-top: 20px;
+  margin: auto;
+}
+.linkToLogin {
+  margin: 15px 0 15px;
+  text-align: center;
+  & > a {
+    color: darkorange;
+  }
+}
+
+.major_header {
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.major_footer {
+  bottom: 0;
+  left: 0;
+  right: 0;
+}

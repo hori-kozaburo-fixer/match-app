@@ -1,0 +1,35 @@
+<div class="postForm">
+  <label for="file_photo" class="rounded-circle postForm_img">
+    <div class="postForm_img_description">画像をアップロード</div>
+    <i class="fas fa-camera fa-3x"></i>
+    <%= f.file_field :image, id: "file_photo" %>
+  </label>
+
+  <div class="ImgPreview" id="userImgPreview">
+    <img id="thumbnail" class="ImgPreview_content">
+    <p class="ImgPreview_text">画像をアップロード済み</p>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :テーマ%>
+    <%= f.label :必須, class:"badge badge-danger" %><br/>
+    <%= f.text_field :name, placeholder: "例）試合観戦", class:"form-control"%>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :ニュース %>
+    <%= f.label :必須, class:"badge badge-danger" %><br/>
+    <%= f.text_area :text, placeholder: "例）今日は名古屋ダイヤモンドドルフィンズの試合観戦！家族で大盛りあがり!最後にはなんと......", rows: "3", class:"form-control"%>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :どのチームのニュース？ %>
+      <%= f.label :必須, class:"badge badge-danger" %><br/>
+      <%= f.collection_select(:team_id, Team.all, :id, :name,{include_blank: "🏀"}, { class:"form-control"}) %><br />
+  </div> 
+
+  <div class="text-center">
+    <%= f.submit "投稿する", class:"btn submitBtn" %>
+  </div>
+
+</div>
