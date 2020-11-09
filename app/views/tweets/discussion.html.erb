@@ -1,0 +1,37 @@
+<div class="discussion">
+<%= render 'shared/header'%>
+  <div class="container">
+    <div class="discussion_tweet">
+      <%= render partial: "shared/tweet", locals:{tweet: @tweet} %>
+    </div>
+    <div class="discussion_user">
+      <% if user_signed_in? %>
+        <% if current_user.id == @tweet.user_id %>
+          <div class="discussion_user_edit userAction_common">
+            <%= link_to(content_tag(:i, "", class: 'fas fa-cog fa-2x'), edit_tweet_path(@tweet.id)) %>
+          </div>
+          <div class="discussion_user_destroy userAction_common">
+            <%= link_to(content_tag(:i, "", class: 'fa fa-trash fa-2x'),tweet_path(@tweet.id), method: :delete) %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="discussion_comment">
+      <% if current_user %>
+        <%= form_with(model: [@tweet, @tweet_comment], local: true) do |f| %>
+          <%= f.text_area :text, placeholder: "コメントしよう！", rows:"2", class:"form-control" %>
+          <%= f.submit "コメント", class:"discussion_comment_btn" %>
+        <% end %>
+      <% end %>
+      <% if @tweet_comments %>
+        <% @tweet_comments.each do |tweet_comment| %>
+          <div class="discussion_comment_each">
+            <strong><%= link_to tweet_comment.user.nickname, user_path(tweet_comment.user.id) %>
+            <%= tweet_comment.text %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

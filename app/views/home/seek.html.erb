@@ -1,0 +1,11 @@
+<%= render 'shared/header' %>
+
+<div class="loginPage">
+  <div class="container">
+    <div class="loginPage_contents">
+      <h1 class="h3 loginPage_contents_title">バスケでつながろう</h1>
+      <%= link_to "さあ、はじめよう！", users_path, class:"btn loginPage_contents_btn"%>
+      <%= link_to "メールアドレスでログインする", new_user_session_path, class: "btn loginPage_contents_btn" %>
+    </div>
+  </div>
+</div>

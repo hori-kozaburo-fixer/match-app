@@ -5,16 +5,19 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+     <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
   </head>
 
   <body>
     <% if flash[:notice] %>
-      <p><%= flash[:notice] %></p>
+      <div class="alert alert-info"><%= flash[:notice] %></div>
     <% end %>
     <% if flash[:alert] %>
-      <p><%= flash[:alert] %></p>
+      <div class="alert alert-danger"><%= flash[:alert] %></div>
     <% end %>
     <%= yield %>
   </body>

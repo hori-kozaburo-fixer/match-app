@@ -1,0 +1,56 @@
+<div class="major_header">
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: darkorange; border:1px solid white">
+    <%= link_to 'MatchApp', root_path, class:"navbar-brand" %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="border:1px solid white;">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to "#{current_user.nickname}さん", user_path(current_user.id), class:"nav-link"%>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"nav-link" %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to '新規登録', new_user_registration_path, class:"nav-link"%>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'ログイン', new_user_session_path, class:"nav-link" %>
+          </li>
+        <% end %>
+        <li class="nav-item">
+          <%= link_to "ニュース", chat_home_index_path, class:"nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'ミニゲーム', game_home_index_path, class:"nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%=link_to "Bリーグ(リンク）", "https://www.bleague.jp/", class:"nav-link" %>
+        </li>
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to "仲間を探す", users_path, class:"nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "投稿する", new_tweet_path, class:"nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%=link_to "チャットページへ行く", matching_index_path, class:"nav-link"%>
+          </li>
+          <li class="nav-item">
+            <%=link_to "通知を確認する", notifications_path, class:"nav-link"%>
+          </li>
+        <% end %>
+        <li class="nav-item">
+          <a href="https://lin.ee/pHke6nm"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" alt="友だち追加" height="36" border="0"></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+
+

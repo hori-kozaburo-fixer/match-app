@@ -1,29 +1,109 @@
-<h2>Sign up</h2>
+<div class="singupPage">
+  <header class="header">
+    <div>アカウントを作成</div>
+  </header>
+  <div class='container'>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class:"mt-5" }) do |f| %>
+      <%= devise_error_messages! %>
+      <div style="text-align: center;">
+        <div class="badge badge-danger" style="margin-left: 120px;">必須</div><br/>
+        <label for="file_photo" class="rounded-circle userProfileImg">
+          <div class="userProfileImg_description">画像をアップロード</div>
+          <i class="fas fa-camera fa-3x"></i>
+          <%= f.file_field :image, id: "file_photo" %>
+        </label>
+      </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="userImgPreview" id="userImgPreview">
+        <img id="thumbnail" class="userImgPreview_content">
+        <p class="userImgPreview_text">画像をアップロード済み</p>
+      </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <div class="form-group">
+        <label>ニックネーム</label>
+        <%= f.label :必須, class:"badge badge-danger" %><br/>
+        <%= f.text_field :nickname, class: "form-control", placeholder: "ニックネームを入力してください" %>
+      </div>  
+
+      <div class="form-group">
+        <label>メールアドレス</label>
+        <%= f.label :必須, class:"badge badge-danger" %><br/>
+        <%= f.email_field :email, class: "form-control", placeholder: "emailを入力してください" ,autocomplete: "email" %>
+      </div>
+
+      <div class="form-group">
+        <label>パスワード</label>
+        <%= f.label :必須, class:"badge badge-danger" %><br/>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %>文字以上入力してください)</em>
+        <% end %><br />
+        <%= f.password_field :password, class: "form-control", placeholder:"パスワードを入力してください", autocomplete: "off" %>
+      </div>
+
+      <div class="form-group">
+        <label>パスワード(確認)</label>
+        <%= f.label :必須, class:"badge badge-danger" %><br/>
+        <%= f.password_field :password_confirmation, class:"form-control", placeholder: "パスワードを再度入力してください", autocomplete: "off" %>
+      </div>
+
+      <div class="form-group">
+        <label for=''>性別</label>
+        <%= f.label :必須, class:"badge badge-danger" %><br/>
+        <div class="form-check form-check-inline">
+          <%= f.radio_button :sex, "男", class: "form-check-input", id: "inlineRadio1" %>
+          <label class="form-check-label" for="inlineRadio1">男</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <%= f.radio_button :sex, "女", class: "form-check-input", id: "inlineRadio2" %>
+          <label class="form-check-label" for="inlineRadio2">女</label>
+        </div>
+      </div>
+
+      <div class="form-group"> 
+      <%= f.label :生年月日 %>
+      <%= f.label :必須, class:"badge badge-danger" %><br/>
+      <div class="input-birth-wrap d-flex justify-content-start">
+        <%= raw sprintf(
+                    f.date_select(
+                      :birthday,
+                      class:'select-birth',
+                      id:"birth-date",
+                      use_month_numbers: true,
+                      prompt:'',
+                      start_year: 1930,
+                      end_year: (Time.now.year - 18),
+                      date_separator: '%s'),
+                    "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+      </div>
+
+      <div class="form-group">
+        <label>好きなチーム</label>
+        <%= f.label :必須, class:"badge badge-danger" %><br/>
+        <%= f.collection_select(:team_id, Team.all, :id, :name,{include_blank: "🏀"}) %><br />
+      </div>  
+
+      <div class="form-group">
+        <label>お住まい</label>
+        <%= f.label :必須, class:"badge badge-danger" %><br/>
+        <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name,{include_blank: "🏀"}) %><br />
+      </div> 
+
+      <div class="form-group">
+        <label>どんな人を探してる？</label>
+        <%= f.label :必須, class:"badge badge-danger" %><br/>
+        <%= text_area :user, :request, maxlength: "60", rows: "2", class:"form-control", placeholder: "例）名古屋で一緒にドルフィンズの試合を見てくれる人募集！(60文字以内)" %>
+      </div>
+
+      <div class="form-group">
+        <label>自己紹介文</label>
+        <%= f.label :必須, class:"badge badge-danger" %><br/>
+        <%= text_area :user, :self_introduction, maxlength: "190", rows: "7", class:"form-control", placeholder:"例）元々バスケットボールをずっとしておりました。ずっと体を動かしたいと思った時にふとテレビでバスケットボールを見てうずうずしています（笑）よろしくお願いします" %>
+      </div>
+
+      <div class="text-center">
+        <%= f.submit "はじめる", class: "btn submitBtn" %>
+        <%= render "devise/shared/links" %>
+      </div>
+    <% end %>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

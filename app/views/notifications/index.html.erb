@@ -1,0 +1,24 @@
+<div class="notification">
+<%= render 'shared/header' %>
+  <div class="container">
+    <div class="notification_user">
+      <% if @notifications != nil %>
+        <% @notifications.each do |notification|%>
+          <ul class="notification_user_each">
+            <li class="notification_user_each_image">
+              <%= link_to user_path(notification.visitor_id) do %>
+                <%= image_tag "#{notification.visitor.image}", class:"img-fluid", size: "50x50"%>
+              <% end %>
+            </li>
+            <li class="notification_user_eack_name">
+              <%= link_to "#{notification.visitor.nickname}", user_path(notification.visitor_id) %>
+              <strong>さんがあなたをフォローしました</strong>
+            </li>
+          </ul>
+        <% end %>
+      <% else %>
+        <p>通知はありません</p>
+      <% end %>
+    </div>
+  </div>
+</div>

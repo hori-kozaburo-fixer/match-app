@@ -1,0 +1,23 @@
+<div class="search">
+<%= render 'shared/header'%>    
+  <div class="container">
+    <div class="row search_head">
+      <div class="search_head_post">
+        <%= link_to new_tweet_path, class:"search_head_post_btn" do %>
+          <div class="search_head_post_btn_icon"><i class="fa fa-edit fa-2x"></i></div>
+        <% end %>
+      </div>
+      <div class="search_head_search">
+        <%= form_with(url: search_tweets_path, local: true, method: :get, class: "form-inline") do |f| %>
+          <%= f.text_field :keyword, placeholder: '投稿を検索', class: "form-control" %>
+          <%= f.submit "検索", class:"btn btn-outline-warning", style:"margin-left: 70px;" %>
+        <% end %>
+    </div>
+    <div class="row search_tweets">
+      <% @tweets.each do |tweet| %>
+        <div class="search_tweets_each">
+          <%= render partial: "shared/tweet", locals: { tweet: tweet} %>
+        </div>
+      <% end %>
+    </div>
+</div>

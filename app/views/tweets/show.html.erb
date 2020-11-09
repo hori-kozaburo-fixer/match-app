@@ -1,0 +1,15 @@
+<div class="tweet_show">
+  <%= render 'shared/header'%>                 
+    <div class="container">
+      <div class="row tweet_show_team">
+        <%= image_tag "#{@team.image}", class:"img-fluid tweet_show_team_logo", size:"150x150" %>
+      </div>
+      <div class="row tweet_show_article">
+        <% @tweets.each do |tweet| %>
+          <div class="tweet_show_article_each">
+            <%= render partial: 'shared/tweet',locals:{tweet:tweet} %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+</div>
