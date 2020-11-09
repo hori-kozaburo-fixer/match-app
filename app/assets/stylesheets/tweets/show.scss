@@ -1,0 +1,20 @@
+.tweet_show {
+  height: 90vh;
+  &_team {
+    top: 20px;
+    height: 20vh;
+    width: 100%;
+    position: relative;
+    &_logo {
+      position: absolute;
+      left: 44%;
+    }
+  }
+  &_article {
+    height: 70vh;
+    &_each {
+      margin: auto;
+      margin-bottom: 40px;
+    }
+  }
+}

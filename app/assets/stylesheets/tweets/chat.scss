@@ -1,0 +1,52 @@
+.conversation {
+  background-image: url(image/back.jpeg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color:rgba(255,255,255,0.35);background-blend-mode: lighten;
+  &_search {
+    height: 5vh;
+    width: 100%;
+    margin-right: 0;
+    padding-top: 20px;
+    &_text {
+      text-align: center;
+      position: relative;
+      padding: 0.4rem 0.7rem;
+      color: #fff;
+      border-radius: 10px;
+      background: darkorange;
+      opacity: 0.9;
+      border: 2px solid white;
+      &:after {
+        position: absolute;
+        bottom: -9px;
+        left: 3em;
+        width: 0;
+        height: 0;
+        content: '';
+        border-width: 20px 20px 0 20px;
+        border-style: solid;
+        border-color:darkorange transparent transparent transparent;
+      }
+    }
+    &_search {
+      padding-left: 40px;
+    }   
+  }
+  &_teams {
+    padding-top: 60px;
+    bottom: 0px;
+    width: 100%;
+    justify-content: center;
+    &_each {
+      margin: auto;
+      &:hover {
+        background: orange;
+        box-shadow: 0px 0px 0px 5px orange;
+        border-radius: 100px;
+      }
+    }
+  }
+}

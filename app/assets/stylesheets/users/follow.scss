@@ -1,0 +1,24 @@
+.follow {
+  &_text {
+    text-align: center;
+    height: 10vh;
+    width: 100%;
+    margin-top: 30px;
+  }
+  &_user {
+    width: 100%;
+    flex-direction: column;
+    &_each {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  &_skip {
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    &:hover{
+    }
+  }
+}
