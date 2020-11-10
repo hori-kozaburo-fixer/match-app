@@ -8,8 +8,12 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def follow
-    @users =User.where(team_id: current_user.team_id).where.not(id: current_user.id)
+  def follow_team
+    @users = User.where(team_id: current_user.team_id).where.not(id: current_user.id)
+  end
+
+  def follow_prefecture
+    @users = User.where(prefecture_id: current_user.prefecture_id).where.not(id:current_user.id) 
   end
 
 end
