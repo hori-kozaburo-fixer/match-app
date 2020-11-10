@@ -24,8 +24,12 @@
           <%= f.submit "ログインする", class: "loginBtn" %>
         </div>
         <div class="form-group text-center">
-        <%= link_to 'Facebookでログイン', user_facebook_omniauth_authorize_path, method: :post, class: "loginBtn_sns"%>
-        <%= link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post, class: "loginBtn_sns"%>     
+          <%= link_to user_facebook_omniauth_authorize_path, method: :post, class: "loginBtn_sns" do %>
+            <span><%= image_tag 'image/facebook.png',size:"30x30" %>ログイン</span>
+          <% end %>
+          <%= link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: "loginBtn_sns" do %>
+            <span><%= image_tag 'image/google.jpeg',size:"35x35",  style:"border-radius: 50%;" %>ログイン</span>
+          <% end %>     
         </div>
       </div>
 
