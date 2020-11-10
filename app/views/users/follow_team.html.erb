@@ -1,0 +1,32 @@
+<div class="follow">
+  <%= render 'shared/header' %>
+  <h5 class="follow_text">好きなチームが同じ方をフォローしてみませんか？</h5>
+  <div class="container"> 
+    <div class=" row follow_user">
+      <% @users.each do |user|%>
+        <ul class="follow_user_each">
+          <li class="follow_user_each_img">
+            <%= image_tag user.image.url(:thumb), size:"100x100" %>
+          </li>
+          <li class="follow_user_each_information">
+            <%= link_to user_path(user.id) do %>
+            <%= user.nickname %>
+            <% end %>
+            <%=  user.request %>
+          </li>
+          <li class="follow_user_each_follow">
+            <%= link_to reactions_path(user_id: user.id, reaction: 'like'), method: :post do %>
+            <div class="fa fa-thumbs-up fa-2x good" style="color: darkorange;"></div>
+            <% end %>
+          </li>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+    <div class="follow_move">
+      <div class="follow_move_next"><%= link_to '次へ', follow_prefecture_users_path, style:"color: darkorange;"%></div>
+      <div class="follow_move_skip"><%= link_to 'マイページに戻る', user_path(current_user.id), style:"color: darkorange;"%></div>
+    </div>
+</div>
+
+  
