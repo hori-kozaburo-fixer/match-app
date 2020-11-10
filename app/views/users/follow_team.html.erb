@@ -12,20 +12,20 @@
             <%= link_to user_path(user.id) do %>
             <%= user.nickname %>
             <% end %>
+            <%=  user.request %>
           </li>
-          <li class="follow_user_each_follow" id="follow-logo">
+          <li class="follow_user_each_follow">
             <%= link_to reactions_path(user_id: user.id, reaction: 'like'), method: :post do %>
-            <div><i class="fa fa-thumbs-up fa-2x" style="color: darkorange;"></i></div>
+            <div class="fa fa-thumbs-up fa-2x good" style="color: darkorange;"></div>
             <% end %>
           </li>
         </ul>
       <% end %>
     </div>
   </div>
-    <div class="follow_skip">
-      <%= link_to user_path(current_user.id) do %>
-        <h5>今はフォローしない👉</h5>
-      <% end %>
+    <div class="follow_move">
+      <div class="follow_move_next"><%= link_to '次へ', follow_prefecture_users_path, style:"color: darkorange;"%></div>
+      <div class="follow_move_skip"><%= link_to 'マイページに戻る', user_path(current_user.id), style:"color: darkorange;"%></div>
     </div>
 </div>
 

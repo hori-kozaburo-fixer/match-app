@@ -10,6 +10,7 @@ require("jquery")
 require("preview.js")
 require("swipe.js")
 require("transform.js")
+require("follow.js")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

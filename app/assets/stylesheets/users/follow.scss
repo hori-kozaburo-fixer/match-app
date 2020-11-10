@@ -12,13 +12,31 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      &_information {
+        display: flex;
+        flex-direction: column;
+      }
     }
   }
-  &_skip {
+  &_move {
     width: 100%;
+    margin-top: 50px;
     text-align: center;
     text-decoration: none;
-    &:hover{
+    flex-direction: column;
+    &_next {
+      text-decoration: none;
+      color: darkorange;
+      &:hover{
+        opacity: 0.5;
+      }
+    }
+    &_skip {
+      margin-top: 20px;
+      color: darkorange;
+      &:hover{
+        opacity: 0.5;
+      }
     }
   }
 }

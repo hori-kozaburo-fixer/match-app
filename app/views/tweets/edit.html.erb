@@ -1,9 +1,11 @@
+<div class="tweet_new">
 <%= render 'shared/header'%>
-<div class="main">
+<header class="header">
+    <div>投稿編集</div>
+  </header>
  <div class="container">
    <%= form_with(model: @tweet, local: true) do |form| %>
      <%= render partial: "shared/form", locals: { f: form } %>
    <% end %>
  </div>
 </div>
-<%= render 'shared/footer'%>

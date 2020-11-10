@@ -44,8 +44,8 @@ class TweetsController < ApplicationController
   
   def discussion
     @tweet = Tweet.find(params[:id])
-    @tweet_comment = TweetComment.new
-    @tweet_comments = TweetComment.where(tweet_id: @tweet.id)
+    @comment = Comment.new
+    @comments = Comment.where(tweet_id: @tweet.id)
   end
 
   def search

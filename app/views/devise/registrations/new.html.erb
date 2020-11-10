@@ -31,6 +31,9 @@
         <%= f.email_field :email, class: "form-control", placeholder: "emailを入力してください" ,autocomplete: "email" %>
       </div>
 
+      <% if @sns_id.present? %>
+        <%= hidden_field_tag :sns_auth, true %>
+      <% else %>
       <div class="form-group">
         <label>パスワード</label>
         <%= f.label :必須, class:"badge badge-danger" %><br/>
@@ -45,6 +48,7 @@
         <%= f.label :必須, class:"badge badge-danger" %><br/>
         <%= f.password_field :password_confirmation, class:"form-control", placeholder: "パスワードを再度入力してください", autocomplete: "off" %>
       </div>
+      <% end %>
 
       <div class="form-group">
         <label for=''>性別</label>

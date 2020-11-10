@@ -19,7 +19,7 @@
 
     <div class="discussion_comment">
       <% if current_user %>
-        <%= form_with(model: [@tweet, @tweet_comment], local: true) do |f| %>
+        <%= form_with(model: [@tweet, @comment], local: true) do |f| %>
           <%= f.text_area :text, placeholder: "コメントしよう！", rows:"2", class:"form-control" %>
           <%= f.submit "コメント", class:"discussion_comment_btn" %>
         <% end %>
