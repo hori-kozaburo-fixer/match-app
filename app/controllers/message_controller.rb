@@ -1,13 +1,20 @@
-class ChatMessageController < ApplicationController
+class MessageController < ApplicationController
   before_action :authenticate_user!
   def show
     room = Room.find_by(id: params[:id])
     @room_user = room.room_users.where.not(user_id: current_user.id).first.user
-    @chat_messages = ChatMessage.where(room: room).order(:created_at)
-    @chat_message = ChatMessage.new
+    @messages = Message.where(room: room).order(:created_at)
+    @message = Message.new
+  end
+  
+  def create
+    room_user = RoomUser.find_by(user_id: params[:format])
+    @message = Message.new(message: params[:message][:message], room_id: room_user.room_id, user_id: room_user.user_id)
+    @from_user = User.find_by(id: current_user.id)
+    @to_user = User.find_by(id: room_user.user_id)
+    if @message.save
+      ActionCable.server.broadcast 'message_channel', content: @message, from_user: @from_user.nickname, to_user: @to_user.nickname
+    end
   end
 
-  def create
-    @chat_message = ChatMessage.new(text: params[:message][:text])
-  end
 end

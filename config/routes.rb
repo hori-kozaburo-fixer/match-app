@@ -30,6 +30,6 @@ Rails.application.routes.draw do
   resources :reactions, only:[:create]
   resources :matching, only:[:index]
   resources :chat, only:[:create] 
-  resources :message, only:[:show, :create]
   resources :notifications, only: [:index]
+  resources :message, only:[:show, :create]
 end
