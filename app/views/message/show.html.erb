@@ -1,0 +1,25 @@
+<div class="chatPage">
+  <header class="header">
+  <%= link_to "", matching_index_path, class: "linkToMatching" %>
+    <div class="chatPartner">
+      <div class="chatPartner_img"><%= image_tag "#{@room_user.image}" %></div>
+      <div class="chatPartner_name"><%= @room_user.nickname %></div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="messagesArea messages">
+      <div id="messages">
+      <%= render partial: 'message', collection: @messages %>
+    </div>
+  </div>
+
+  <%= form_with model:@message, url: message_index_path(@room_user), class:"messageInputForm", name: '#{@room_user}' do |f| %>
+    <div class='container'>
+      <%= f.text_field :message, class:"messageInputForm_input", placeholder:"メッセージを入力..."%>
+      <%= f.submit '', class:'fas fa-basketball-ball'%>
+        <div style="text-align: center;"><i class="fa fa-paper-plane fa-2x"></i></div>
+    </div>
+  <% end %>
+
+</div>
