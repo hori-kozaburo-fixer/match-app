@@ -86,3 +86,5 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
 gem 'font-awesome-sass'
 gem 'bootstrap', '~> 4.1.3'
+
+gem 'redis-actionpack', github: 'redis-store/redis-actionpack'
