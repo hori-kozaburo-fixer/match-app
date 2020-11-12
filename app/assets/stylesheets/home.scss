@@ -1,5 +1,5 @@
 .summary {
-  background-image: url(image/top-back.jpg);
+  background-image: image-url('top-back.jpg');
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -92,7 +92,7 @@
       }
     }
     &_btn_line{
-      background-image: url(image/line.png);
+      background-image: image-url('line.png');
       background-position: center center;
       background-repeat: no-repeat;
       background-size: 110px 110px;
