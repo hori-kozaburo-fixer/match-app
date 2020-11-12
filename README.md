@@ -1,24 +1,23 @@
-# README
+### 名前
+# match-app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### 概要
+# バスケットボール関しての出会いを提供しています。試合を観戦したい方や一緒にバスケをしてくれる仲間を探したい方などバスケットを通じたコミュニケーションの場を提供します。また情報共有をすることもできます
 
-Things you may want to cover:
+### URL 
+# http://13.114.91.191/
 
-* Ruby version
+### テストアカウント 
+ #  Email: user1@example.com
+ #  Password: aaaaaa
 
-* System dependencies
+### 利用方法  
+#  アカウント作成することで同じ目的をもったユーザーを探しフォローすることできます。お互いにフォローし合うとメッセージのやり取りをすることができます。またバスケットに関する情報を掲示板形式で確認することができます。
 
-* Configuration
+### なぜ作成したのか
+#  バスケットボールをしたくても仲間がいなかったり観戦に行きたいけど一緒に行く人が周りにいない人などが仲間を集まれるように作成しました。また自分がファンのチームの情報を集められるようにニュース形式で掲示板を作成しました。
+ 
+### ユーザーをフォローする際にswipe機能がついています
+# https://github.com/zab3/match-app/issues/7#issue-741291487
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### ruby2.6.5 rails 6.0.0
