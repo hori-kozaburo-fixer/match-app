@@ -18,6 +18,9 @@
   バスケットボールをしたくても仲間がいなかったり観戦に行きたいけど一緒に行く人が周りにいない人などが仲間を集まれるように作成しました。また自分がファンのチームの情報を集められるようにニュース形式で掲示板を作成しました。
  
 ### ユーザーをフォローする際にswipe機能がついています
-[リンク] https://github.com/zab3/match-app/issues/7#issue-741291487
+![スワイプ機能] (https://github.com/zab3/match-app/issues/7#issue-741291487)
+
+### ER図
+![ER図](https://gyazo.com/aa69e8c6890776eb0fcc1ecd53fe9982)
 
 ### ruby2.6.5 rails 6.0.0
