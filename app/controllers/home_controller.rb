@@ -7,7 +7,7 @@ class HomeController < ApplicationController
     @teams = Team.all
   end
 
-  def other
+  def game
   end
 
 end
