@@ -11,8 +11,8 @@
     <div class="messagesArea messages">
         <span id="messages"></span>
       <% @messages.each do |message| %>
-        <p><%= message.user.nickname %></p>
-        <p><%= message.text %></p>
+        <p class="d-flex justify-content-center shadow p-3 mb-5 bg-light rounded><%= message.user.nickname %></p>
+        <p><%= message.message %></p>
       <% end %>
     </div>
   </div>
