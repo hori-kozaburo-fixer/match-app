@@ -12,6 +12,7 @@
             <%= link_to user_path(user.id) do %>
             <%= user.nickname %>
             <% end %>
+            <%=  user.request %>
           </li>
           <li class="follow_user_each_follow" id="follow-logo">
             <%= link_to reactions_path(user_id: user.id, reaction: 'like'), method: :post do %>
