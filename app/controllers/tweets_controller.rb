@@ -1,5 +1,5 @@
 class TweetsController < ApplicationController
-  before_action :authenticate_user!, only:[:new, :create]
+  before_action :authenticate_user!, only: [:new, :create]
 
   def show
     @team = Team.find(params[:id])
@@ -15,7 +15,7 @@ class TweetsController < ApplicationController
     if @tweet.valid?
       @tweet.save
       redirect_to tweet_path(@tweet.team_id)
-    else 
+    else
       render :new
     end
   end
@@ -35,13 +35,12 @@ class TweetsController < ApplicationController
     end
   end
 
-
-  def destroy 
+  def destroy
     @tweet = Tweet.find(params[:id])
     @tweet.destroy
     redirect_to chat_home_index_path
   end
-  
+
   def discussion
     @tweet = Tweet.find(params[:id])
     @comment = Comment.new
