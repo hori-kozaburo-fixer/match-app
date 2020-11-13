@@ -9,8 +9,11 @@
 
   <div class="container">
     <div class="messagesArea messages">
-      <div id="messages">
-      <%= render partial: 'message', collection: @messages %>
+        <span id="messages"></span>
+      <% @messages.each do |message| %>
+        <p><%= message.user.nickname %></p>
+        <p><%= message.text %></p>
+      <% end %>
     </div>
   </div>
 

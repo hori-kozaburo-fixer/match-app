@@ -13,7 +13,7 @@ class MessageController < ApplicationController
     @from_user = User.find_by(id: current_user.id)
     @to_user = User.find_by(id: room_user.user_id)
     if @message.save
-      ActionCable.server.broadcast 'message_channel', content: @message, from_user: @from_user.nickname, to_user: @to_user.nickname
+      ActionCable.server.broadcast 'message_channel', content: @message, from_user: @from_user.nickname
     end
   end
 

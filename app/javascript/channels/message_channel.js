@@ -10,14 +10,12 @@ consumer.subscriptions.create("MessageChannel", {
   },
 
   received(data) {
-    const html = `<p>${data.content.message}</p>`;
-    // const from_user_image = `<p>${data.content.from_user}</p>`;
-    // const to_user_image = `<p>${data.content.to_user}</p>`;
+    const fromName = `<p>${data.from_user}</p>`
+    const message = `<p class="d-flex justify-content-center shadow p-3 mb-5 bg-light rounded">${data.content.message}</p>`;
     const messages = document.getElementById('messages');
+    messages.insertAdjacentHTML('beforeend', fromName);
+    messages.insertAdjacentHTML('beforeend', message);
     const newMessage = document.getElementById('message_message');
-    // messages.insertAdjacentHTML('afterbegin', from_user_image);
-    // messages.insertAdjacentHTML('afterbegin', to_user_image);
-    messages.insertAdjacentHTML('afterbegin', html);
     newMessage.value='';
   }
 });
