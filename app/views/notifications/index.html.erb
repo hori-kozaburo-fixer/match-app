@@ -2,7 +2,9 @@
 <%= render 'shared/header' %>
   <div class="container">
     <div class="notification_user">
-      <% if @notifications != nil %>
+      <% if @notifications.blank? %>
+        <div>通知はありません</div>
+      <% else %>
         <% @notifications.each do |notification|%>
           <ul class="notification_user_each">
             <li class="notification_user_each_image">
@@ -16,8 +18,6 @@
             </li>
           </ul>
         <% end %>
-      <% else %>
-        <p>通知はありません</p>
       <% end %>
     </div>
   </div>
