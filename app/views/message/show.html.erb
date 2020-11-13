@@ -20,8 +20,9 @@
   <%= form_with model:@message, url: message_index_path(@room_user), class:"messageInputForm", name: '#{@room_user}' do |f| %>
     <div class='container'>
       <%= f.text_field :message, class:"messageInputForm_input", placeholder:"メッセージを入力..."%>
-      <%= f.submit '', class:'fas fa-basketball-ball'%>
-        <div style="text-align: center;"><i class="fa fa-paper-plane fa-2x"></i></div>
+      <%= f.button type: :submit do %>
+        <i class="fa fa-paper-plane" ></i>
+      <% end %>
     </div>
   <% end %>
 

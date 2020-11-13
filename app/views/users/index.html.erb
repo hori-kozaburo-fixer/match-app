@@ -14,7 +14,8 @@
         <li data-user_id="<%= user.id %>">
           <div><%= link_to user.nickname, user_path(user.id), class:"userName" %></div>
           <div class="userTeam"><%= user.team.name %></div>
-          <%= image_tag "#{user.image}"%>
+          <div class="userRequest"><%= user.request %></div>
+          <%= image_tag "#{user.image}", size: '390x390'%>
           <div class="like"></div>
           <div class="dislike"></div>
         </li>

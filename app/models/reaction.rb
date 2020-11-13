@@ -5,7 +5,7 @@ class Reaction < ApplicationRecord
   enum status:{ like:0, dislike:1 }
 
   def create_notification_follow!(current_user)
-    temp = Notification.where(["visitor_id = ? and visited_id = ? and action = ? ",current_user.id, id, 'follow'])
+    temp = Notification.where(["visitor_id = ? and visited_id = ? and action = ? ",current_user.id, to_user_id, 'follow'])
     if temp.blank?
       notification = Notification.new(
         visitor_id: from_user_id,
