@@ -24,11 +24,11 @@
           <%= f.submit "コメント", class:"discussion_comment_btn" %>
         <% end %>
       <% end %>
-      <% if @tweet_comments %>
-        <% @tweet_comments.each do |tweet_comment| %>
+      <% if @comments %>
+        <% @comments.each do |comment| %>
           <div class="discussion_comment_each">
-            <strong><%= link_to tweet_comment.user.nickname, user_path(tweet_comment.user.id) %>
-            <%= tweet_comment.text %>
+            <strong><%= link_to comment.user.nickname, user_path(comment.user.id) %>
+            <%= comment.text %>
           </div>
         <% end %>
       <% end %>

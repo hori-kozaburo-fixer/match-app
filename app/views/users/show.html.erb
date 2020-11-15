@@ -1,23 +1,31 @@
 <%= render 'shared/header' %>
-
 <div class='usershowPage'>
   <div class='container'>
     <header class="header">
-      <div class='header_seek'>
-        <%= link_to users_path, class:"header_seek_btn" do %>
-          <div class="header_seek_btn_icon"><i class="fas fa-search fa-3x"></i></div>
-        <% end %>
-      </div>
-      <div class='header_notification'>
-        <%= link_to notifications_path, class:"header_notification_btn" do %>
-          <div class="header_notification_btn_icon"><i class="fas fa-bell fa-3x"></i></div>
-        <% end %>
-      </div>
-      <div class="header_tweet">
-        <%= link_to new_tweet_path, class:"header_tweet_btn" do %>
-          <div class="header_tweet_btn_icon"><i class="fa fa-edit fa-2x"></i></div>
-        <% end %>
-      </div>
+      <% if @user.id == current_user.id %>
+        <div class='header_seek'>
+          <%= link_to users_path, class:"header_seek_btn" do %>
+            <div class="header_seek_btn_icon"><i class="fas fa-search fa-3x"></i></div>
+          <% end %>
+        </div>
+        <div class='header_notification'>
+          <%= link_to notifications_path, class:"header_notification_btn" do %>
+            <div class="header_notification_btn_icon"><i class="fas fa-bell fa-3x"></i></div>
+          <% end %>
+        </div>
+        <div class="header_tweet">
+          <%= link_to new_tweet_path, class:"header_tweet_btn" do %>
+            <div class="header_tweet_btn_icon"><i class="fa fa-edit fa-2x"></i></div>
+          <% end %>
+        </div>
+      <% else %>
+        <div>
+           <div class='header_follow'>
+          <%= link_to reactions_path(user_id: current_user.id, reaction: 'like'), method: :post do %>
+            <div class="fa fa-thumbs-up fa-2x good" style="color: darkorange;"></div>
+          <% end %>
+        </div>
+      <% end %>
     </header>
     <div class='userInfo'>
       <div class='userInfo_img'>
@@ -49,7 +57,11 @@
     <div class="userPost">
       <div class="userPost_icon"><i class="fa fa-desktop "></i> </div>
       <div class="userPost_card">
-        <%= render partial: 'shared/tweet', collection: @user.tweets %>
+        <% if @user.tweets.blank? %>
+        <div>まだ投稿はありません</div>
+        <% else %>
+          <%= render partial: 'shared/tweet', collection: @user.tweets %>
+        <% end %>
       </div>
   </div>
 </div>

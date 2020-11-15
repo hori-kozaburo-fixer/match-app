@@ -1,6 +1,6 @@
 <div class="follow">
   <%= render 'shared/header' %>
-  <h5 class="follow_text">お住まいが同じ方をフォローしてみませんか？</h5>
+  <h5 class="follow_text">近くに住んでいる方をフォローしてみませんか？</h5>
   <div class="container"> 
     <div class=" row follow_user">
       <% @users.each do |user|%>
@@ -14,9 +14,10 @@
             <% end %>
             <%=  user.request %>
           </li>
-          <li class="follow_user_each_follow" id="follow-logo">
+          <li class="follow_user_each_follow">
             <%= link_to reactions_path(user_id: user.id, reaction: 'like'), method: :post do %>
             <div><i class="fa fa-thumbs-up fa-2x good" style="color: darkorange;"></i></div>
+            <div class="fas fa-check fa-2x check" style="display: none; color: darkorange;"></div>
             <% end %>
           </li>
         </ul>

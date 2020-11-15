@@ -1,3 +1,13 @@
+@keyframes follow {
+  0% { transform:translateY(0) }
+  5% { transform:translateY(0) }
+  10% { transform:translateY(0) }
+  20% { transform:translateY(-15px) }
+  25% { transform:translateY(0) }
+  30% { transform:translateY(-15px) }
+  50% { transform:translateY(0) }
+  100% { transform:translateY(0) }
+}
 .summary {
   background-image: image-url('top-back.jpg');
   background-position: center center;
@@ -5,6 +15,10 @@
   background-attachment: fixed;
   background-size: cover;
   background-blend-mode: darken;
+  &_top {
+    display: flex;
+    align-items: center;
+  }
   &_timer{
     height: 15vh;
     padding-top: 20px;
@@ -12,6 +26,15 @@
     text-shadow: 1px 1px 1px black;
     font-family: 'Courier New', Courier, monospace;
     color: darkorange;
+  }
+  &_show {
+    width: 24%;
+    margin-right: 12%;
+    text-align: center;
+    padding: 0.5em 0;
+    border-top: solid 3px darkorange;
+    border-bottom: solid 3px darkorange;
+    animation: follow 6s ease infinite;
   }
   &_up {
     height: 54vh;
@@ -50,13 +73,12 @@
       border-radius: 50%;
       overflow: hidden;
       opacity: 0.9;
-      box-shadow: 0px 0px 0px 5px darkorange;
-      border: groove 1px #FFF;
+      border: groove 2px #FFF;
       transition: .4s;
       position: relative;
       &:hover{
         background: orange;
-        box-shadow: 0px 0px 0px 5px orange;
+        box-shadow: 0px 0px 0px 2px orange;
       }
       &_icon {
         position: absolute;
