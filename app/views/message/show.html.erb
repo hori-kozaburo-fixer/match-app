@@ -10,9 +10,9 @@
   <div class="container">
     <div class="messagesArea messages">
         <span id="messages"></span>
-      <% @messages.each do |message| %>
-        <p class="d-flex justify-content-center shadow p-3 mb-5 bg-light rounded><%= message.user.nickname %></p>
-        <p><%= message.message %></p>
+      <% @messages.reverse.each do |message| %>
+        <p><%= message.user.nickname %></p>
+        <p class="d-flex justify-content-center shadow p-3 mb-5 bg-light rounded"><%= message.message %></p>
       <% end %>
     </div>
   </div>
