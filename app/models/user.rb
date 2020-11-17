@@ -10,18 +10,21 @@ class User < ApplicationRecord
   belongs_to_active_hash :team
   belongs_to_active_hash :prefecture
   mount_uploader :image, ImageUploader
-  
-  enum sex:{男: 0, 女: 1}
-  
+
+  enum sex: { 男: 0, 女: 1 }
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
+  validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: 'は半角英数字混合で入力してください' }
+
   with_options presence: true do
     validates :nickname, length: { maximum: 30 }
     validates :birthday
-    validates :self_introduction, length: { maximum: 191}
+    validates :request, length: { maximum: 60 }
+    validates :self_introduction, length: { maximum: 191 }
     validates :sex
     validates :image
     validates :team_id
@@ -40,6 +43,4 @@ class User < ApplicationRecord
     end
     { user: user, sns: sns }
   end
-
 end
-        

@@ -5,6 +5,16 @@
   75% {transform: translate(1px, 0px) rotateZ(-1deg)}
   100% {transform: translate(0px, 0px) rotateZ(0deg)}
 }
+@keyframes follow {
+  0% { transform:translateY(0) }
+  5% { transform:translateY(0) }
+  10% { transform:translateY(0) }
+  20% { transform:translateY(-15px) }
+  25% { transform:translateY(0) }
+  30% { transform:translateY(-15px) }
+  50% { transform:translateY(0) }
+  100% { transform:translateY(0) }
+}
 
 .usershowPage {
   .header {
@@ -68,6 +78,14 @@
         }
       }
     }
+    &_follow {
+      position: absolute;
+      top: 170px;
+      right: 30%;
+      &:hover {
+        animation: follow 3s ease infinite;
+      }
+    }
   }
 
   .userInfo {
@@ -95,6 +113,7 @@
       }
       &_team{
         margin-left: 50px;
+        margin-right: 50px;
       }
     }
     &_selfIntroduction {

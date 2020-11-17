@@ -9,8 +9,11 @@
 
   <div class="container">
     <div class="messagesArea messages">
-      <div id="messages">
-      <%= render partial: 'message', collection: @messages %>
+        <span id="messages"></span>
+      <% @messages.reverse.each do |message| %>
+        <p><%= message.user.nickname %></p>
+        <p class="d-flex justify-content-center shadow p-3 mb-5 bg-light rounded"><%= message.message %></p>
+      <% end %>
     </div>
   </div>
 

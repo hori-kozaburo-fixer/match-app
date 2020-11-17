@@ -16,7 +16,8 @@
           </li>
           <li class="follow_user_each_follow">
             <%= link_to reactions_path(user_id: user.id, reaction: 'like'), method: :post do %>
-            <div class="fa fa-thumbs-up fa-2x good" style="color: darkorange;"></div>
+            <div class="fa fa-thumbs-up fa-2x good" style="color: darkorange;"></div><span id="follow"></span>
+            <div class="fas fa-check fa-2x check" style="display: none; color: darkorange;"></div>
             <% end %>
           </li>
         </ul>

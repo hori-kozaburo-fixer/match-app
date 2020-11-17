@@ -63,7 +63,7 @@ html, body {
       top: 0;
       z-index: 2;
       left: 0;
-      box-shadow: 0 0 20px rgba(0, 0, 0, .2);
+      box-shadow: 0 0 8px rgba(211,211,211, .2);
       overflow: hidden;
       text-align: center;
       padding: 10px 10px 10px 10px;
@@ -81,7 +81,7 @@ html, body {
       -webkit-backface-visibility: hidden;
       .userName {
         position: absolute;
-        bottom: 50px;
+        top: 10px;
         color: #000;
         font-size: 25px;
         margin-bottom: 10px;
@@ -93,7 +93,7 @@ html, body {
       }
       .userTeam {
         position: absolute;
-        bottom: 45px;
+        top: 20px;
         color: #000;
         font-size: 15px;
         margin-top: 10px;
@@ -110,13 +110,14 @@ html, body {
       }
       .userRequest {
         position: absolute;
-        bottom: 5px;
+        bottom: 10px;
         color: #000;
         font-size: 18px;
         margin-top: 2px;
       }
       img {
         position: absolute;
+        top: 63px;
         left: 50%;
         height: 75%;
         width: 75%;
@@ -178,7 +179,7 @@ html, body {
   position: absolute;
   width: 170px;
   left: 45px;
-  top:40px;
+  top: 70px;
   z-index: 1;
   overflow: hidden;
   -webkit-transform: translate3d(0%,0,0) scale3d(1,1,1);

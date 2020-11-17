@@ -1,10 +1,10 @@
-if (document.URL.match(/follow_team/) || document.URL.match(/follow_prefecture/)) {
+if (document.URL.match(/users/)){
   function follow() {
-    let like = document.getElementsByClassName('good')
+    let goods = document.getElementsByClassName('good')
     window.addEventListener('click', () => {
-      for(let i = 0; i < like.length; i++){
-        like[i].addEventListener('click', () => {
-          like[i].removeAttribute('class', 'fa fa-thumbs-up fa-2x');
+      for(let i = 0; i < goods.length; i++){
+        goods[i].addEventListener('click', () => {
+          goods[i].removeAttribute('class', 'fa fa-thumbs-up fa-2x');
         });
       } 
     });

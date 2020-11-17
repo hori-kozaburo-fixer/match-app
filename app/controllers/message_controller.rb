@@ -6,15 +6,15 @@ class MessageController < ApplicationController
     @messages = Message.where(room: room).order(:created_at)
     @message = Message.new
   end
-  
+
   def create
     room_user = RoomUser.find_by(user_id: params[:format])
-    @message = Message.new(message: params[:message][:message], room_id: room_user.room_id, user_id: room_user.user_id)
+    @message = Message.new(message: params[:message][:message], room_id: room_user.room_id, user_id: current_user.id)
     @from_user = User.find_by(id: current_user.id)
     @to_user = User.find_by(id: room_user.user_id)
-    if @message.save
-      ActionCable.server.broadcast 'message_channel', content: @message, from_user: @from_user.nickname, to_user: @to_user.nickname
-    end
+    ActionCable.server.broadcast 'message_channel', 
+    content: @message, 
+    from_user: @from_user.nickname 
+    @message.save
   end
-
 end
