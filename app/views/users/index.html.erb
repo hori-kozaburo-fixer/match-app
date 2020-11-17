@@ -12,10 +12,11 @@
     <ul>
       <% @users.each do |user| %>
         <li data-user_id="<%= user.id %>">
-          <div><%= link_to user.nickname, user_path(user.id), class:"userName fa fa-child" %></div>
-          <div class="userTeam"><%= user.team.name %></div>
+          <span><%= link_to user.nickname, user_path(user.id), class:"userName fa fa-child" %></span>
+          <span class="userTeam"><%= user.team.name %></span>
           <div class="userRequest"><%= user.request%></div>
-          <%= image_tag "#{user.image}", size: '400x400'%>
+          <span><%= user.prefecture.name %></span>
+          <%= image_tag "#{user.image}", size: '350x350'%>
           <div class="like"></div>
           <div class="dislike"></div>
         </li>
