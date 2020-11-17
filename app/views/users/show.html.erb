@@ -38,7 +38,11 @@
           <i class="fas fa-venus" style="color: red;"></i>
         <% end %>
       </div>
-      <div class='userInfo_birthday'><i class="fas fa-birthday-cake userInfo_birthday_icon"></i><%= @user.birthday%><%= image_tag "#{@user.team.image}", class:"img-fluid userInfo_birthday_team", size:"65x65" %></div>
+      <div class='userInfo_birthday'><i class="fas fa-birthday-cake userInfo_birthday_icon"></i>
+      <%= @user.birthday%>
+      <%= image_tag "#{@user.team.image}", class:"img-fluid userInfo_birthday_team", size:"65x65" %>
+      <%= "#{@user.prefecture.name}在住" %>
+      </div>
       <div class='userInfo_selfIntroduction'><%= @user.self_introduction %></div>
     </div>
     </div>

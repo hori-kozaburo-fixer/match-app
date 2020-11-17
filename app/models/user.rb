@@ -18,11 +18,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
-  validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: 'Include both letters and numbers.' }
+  validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: 'は半角英数字混合で入力してください' }
 
   with_options presence: true do
     validates :nickname, length: { maximum: 30 }
     validates :birthday
+    validates :request, length: { maximum: 60 }
     validates :self_introduction, length: { maximum: 191 }
     validates :sex
     validates :image
