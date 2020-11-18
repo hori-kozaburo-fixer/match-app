@@ -20,13 +20,13 @@
       </div>
 
       <div class="form-group">
-        <label>ニックネーム</label>
+        <label for="user_nickname">ニックネーム</label>
         <%= f.label :必須, class:"badge badge-danger" %><br/>
         <%= f.text_field :nickname, class: "form-control", placeholder: "ニックネームを入力してください" %>
       </div>  
 
       <div class="form-group">
-        <label>メールアドレス</label>
+        <label for="user_email">メールアドレス</label>
         <%= f.label :必須, class:"badge badge-danger" %><br/>
         <%= f.email_field :email, class: "form-control", placeholder: "emailを入力してください" ,autocomplete: "email" %>
       </div>
@@ -35,7 +35,7 @@
         <%= hidden_field_tag :sns_auth, true %>
       <% else %>
       <div class="form-group">
-        <label>パスワード</label>
+        <label for="user_password">パスワード</label>
         <%= f.label :必須, class:"badge badge-danger" %><br/>
         <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %>文字以上入力してください)</em>
@@ -44,14 +44,14 @@
       </div>
 
       <div class="form-group">
-        <label>パスワード(確認)</label>
+        <label for="user_password_confirmation">パスワード(確認)</label>
         <%= f.label :必須, class:"badge badge-danger" %><br/>
         <%= f.password_field :password_confirmation, class:"form-control", placeholder: "パスワードを再度入力してください", autocomplete: "off" %>
       </div>
       <% end %>
 
       <div class="form-group">
-        <label for=''>性別</label>
+        <label>性別</label>
         <%= f.label :必須, class:"badge badge-danger" %><br/>
         <div class="form-check form-check-inline">
           <%= f.radio_button :sex, "男", class: "form-check-input", id: "inlineRadio1" %>
@@ -77,29 +77,29 @@
                       start_year: 1930,
                       end_year: (Time.now.year - 18),
                       date_separator: '%s'),
-                    "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+                    '<label for="user_birthday_1i"> 年 </label>', '<label for="user_birthday_2i"> 月 </label>') + '<label for="user_birthday_3i"> 日 </label>' %>
       </div>
 
       <div class="form-group">
-        <label>好きなチーム</label>
+        <label for="user_team_id">好きなチーム</label>
         <%= f.label :必須, class:"badge badge-danger" %><br/>
         <%= f.collection_select(:team_id, Team.all, :id, :name,{include_blank: "🏀"}) %><br />
       </div>  
 
       <div class="form-group">
-        <label>お住まい</label>
+        <label for="user_prefecture_id">お住まい</label>
         <%= f.label :必須, class:"badge badge-danger" %><br/>
         <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name,{include_blank: "🏀"}) %><br />
       </div> 
 
       <div class="form-group">
-        <label>どんな人を探してる？</label>
+        <label for="user_request">どんな人を探してる？</label>
         <%= f.label :必須, class:"badge badge-danger" %><br/>
         <%= text_area :user, :request, maxlength: "60", rows: "2", class:"form-control", placeholder: "例）名古屋で一緒にドルフィンズの試合を見てくれる人募集！(60文字以内)" %>
       </div>
 
       <div class="form-group">
-        <label>自己紹介文</label>
+        <label for="user_self_introduction">自己紹介文</label>
         <%= f.label :必須, class:"badge badge-danger" %><br/>
         <%= text_area :user, :self_introduction, maxlength: "190", rows: "7", class:"form-control", placeholder:"例）元々バスケットボールをずっとしておりました。ずっと体を動かしたいと思った時にふとテレビでバスケットボールを見てうずうずしています（笑）よろしくお願いします" %>
       </div>

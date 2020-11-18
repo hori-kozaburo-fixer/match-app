@@ -21,14 +21,14 @@ class User < ApplicationRecord
   validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: 'は半角英数字混合で入力してください' }
 
   with_options presence: true do
-    validates :nickname, length: { maximum: 30 }
-    validates :birthday
-    validates :request, length: { maximum: 60 }
-    validates :self_introduction, length: { maximum: 191 }
-    validates :sex
     validates :image
+    validates :nickname, length: { maximum: 30 }
+    validates :sex
+    validates :birthday
     validates :team_id
     validates :prefecture_id
+    validates :request, length: { maximum: 60 }
+    validates :self_introduction, length: { maximum: 191 }
   end
 
   def self.from_omniauth(auth)
