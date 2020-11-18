@@ -2,7 +2,7 @@ class Tweet < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :team
   belongs_to :user
-  has_many :tweet_comments, dependent: :destroy
+  has_many :comments, dependent: :destroy
   mount_uploader :image, ImageUploader
 
   with_options presence: true do
