@@ -21,7 +21,7 @@
       <% else %>
         <div>
            <div class='header_follow'>
-          <%= link_to reactions_path(user_id: current_user.id, reaction: 'like'), method: :post do %>
+          <%= link_to reactions_path(user_id: @user.id, reaction: 'like'), method: :post do %>
             <div class="fa fa-thumbs-up fa-2x good" style="color: darkorange;"></div>
           <% end %>
         </div>
