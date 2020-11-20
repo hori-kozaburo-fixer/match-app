@@ -8,6 +8,13 @@
     <ul>
       <li class="personIcon"><%= link_to(content_tag(:i, "", class: 'fas fa-2x fa-user'), user_path(current_user.id)) %></li>
       <li class="appIcon"><%= link_to image_tag("icon.png"), users_path %></li>
+      <i class="fas fa-search fa-2x btn-menu"></i>
+        <nav>
+          <ul>
+            <li><a href="#">チームで検索</a></li>
+            <li><a href="#">都道府県で検索</a></li>
+          </ul>
+        </nav>
       <li class="messageIcon"><%= link_to(content_tag(:i, "", class:'fas fa-2x fa-2x fa-comments'), matching_index_path) %></li>
     </ul>
   </nav>
