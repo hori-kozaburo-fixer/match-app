@@ -8,16 +8,14 @@
     <ul>
       <li class="personIcon"><%= link_to(content_tag(:i, "", class: 'fas fa-2x fa-user'), user_path(current_user.id)) %></li>
       <li class="appIcon"><%= link_to image_tag("icon.png"), users_path %></li>
-      <i class="fas fa-search fa-2x btn-menu"></i>
-        <nav>
-          <ul>
-            <li><a href="#">チームで検索</a></li>
-            <li><a href="#">都道府県で検索</a></li>
-          </ul>
-        </nav>
       <li class="messageIcon"><%= link_to(content_tag(:i, "", class:'fas fa-2x fa-2x fa-comments'), matching_index_path) %></li>
     </ul>
   </nav>
+    <div class="searchParent">
+      <div class="btn-menu"><i class="fas fa-search fa-2x"></i></div>
+      <div class="searchteam"><%= link_to 'あなたと好きなチームが同じ人を表示', '#' %></div>
+      <div class="searchprefecture"><%= link_to 'あなたと登録した都道府県が同じ人を表示', '#' %></div>
+    </div>
   <div id="tinderslide">
     <ul>
       <% @users.each do |user| %>
@@ -26,7 +24,7 @@
           <span class="userTeam"><%= user.team.name %></span>
           <span class="userPrefecture"><%= user.prefecture.name %></span>
           <div class="userRequest"><%= user.request%></div>
-          <%= image_tag "#{user.image}"%>
+          <%= image_tag "#{user.image}", class:"img-fluid"%>
           <div class="like"></div>
           <div class="dislike"></div>
         </li>

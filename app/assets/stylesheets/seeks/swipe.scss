@@ -42,6 +42,25 @@ html, body {
   visibility: hidden;
 }
 
+.searchParent {
+  position: relative;
+}
+.btn-menu {
+  position: absolute;
+  left: 6%;
+  top: 10vh;
+}
+.searchteam {
+  position: absolute;
+  left: 5%;
+  top: 20vh;
+}
+.searchprefecture {
+  position: absolute;
+  left: 5%;
+  top: 30vh;
+}
+
 #tinderslide {
   position: relative;
   background: #fff;
