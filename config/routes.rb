@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 
   resources :users,  only:[:index, :show] do
     collection do
-      get 'follow_team', 'follow_prefecture'
+      get 'follow_team', 'follow_prefecture', 'search_team', 'search_prefecture'
     end
   end
   resources :reactions, only:[:create]
