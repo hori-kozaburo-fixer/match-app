@@ -1,0 +1,92 @@
+<%= render 'shared/header' %>
+<div id="loading">
+  <div class="spinner"></div>
+</div>
+
+<div class="topPage">
+  <nav class="nav">
+    <ul>
+      <li class="personIcon"><%= link_to(content_tag(:i, "", class: 'fas fa-2x fa-user'), user_path(current_user.id)) %></li>
+      <li class="appIcon"><%= link_to image_tag("icon.png"), users_path %></li>
+      <li class="messageIcon"><%= link_to(content_tag(:i, "", class:'fas fa-2x fa-2x fa-comments'), matching_index_path) %></li>
+    </ul>
+  </nav>
+    <div class="searchParent">
+      <div class="btn-menu"><i class="fas fa-search fa-2x"></i></div>
+      <div class="searchteam"><%= link_to 'あなたと好きなチームが同じ人を表示', search_team_users_path %></div>
+      <div class="searchprefecture"><%= link_to 'あなたと登録した都道府県が同じ人を表示', search_prefecture_users_path %></div>
+    </div>
+  <div id="tinderslide">
+    <ul>
+      <% @users.each do |user| %>
+        <li data-user_id="<%= user.id %>">
+          <span><%= link_to user.nickname, user_path(user.id), class:"userName fa fa-child" %></span>
+          <span class="userTeam"><%= user.team.name %></span>
+          <span class="userPrefecture"><%= user.prefecture.name %></span>
+          <div class="userRequest"><%= user.request%></div>
+          <%= image_tag "#{user.image}", class:"img-fluid"%>
+          <div class="like"></div>
+          <div class="dislike"></div>
+        </li>
+      <% end %>
+    </ul>
+    <div class="noUser">近くに相手がいません。</div>
+  </div>
+  <div class="actions" id="actionBtnArea">
+      <a href="#" class="dislike"><i class="fa fa-thumbs-down fa-2x"></i></a>
+      <a href="#" class="like"><i class="fa fa-thumbs-up fa-2x"></i></a>
+  </div>
+</div>
+<script>
+  let usersNum = <%= @users.length %>
+  let currentUserIndex = 0;
+  let postReaction = function (user_id, reaction) {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+        }
+    });
+    $.ajax({
+      type: "POST",
+      url: "<%= reactions_path %>",
+      data: {
+        user_id: user_id,
+        reaction: reaction,
+      },
+      success: function(j_data){
+        console.log("success")
+      }
+    });
+  }
+  $("#tinderslide").jTinder({
+    onDislike: function (item) {
+      currentUserIndex++;
+      checkUserNum();
+      let user_id = item[0].dataset.user_id
+      postReaction(user_id, 'dislike')
+    },
+    onLike: function (item) {
+      currentUserIndex++;
+      checkUserNum();
+      let user_id = item[0].dataset.user_id
+      postReaction(user_id, 'like')
+    },
+    animationRevertSpeed: 200,
+    animationSpeed: 400,
+    threshold: 1,
+    likeSelector: '.like',
+    dislikeSelector: '.dislike'
+  });
+  $('.actions .like, .actions .dislike').click(function(e){
+    e.preventDefault();
+    $("#tinderslide").jTinder($(this).attr('class'));
+  });
+
+  function checkUserNum() {
+    if (currentUserIndex === usersNum){
+      $(".noUser").addClass("is-active");
+      $("#actionBtnArea").addClass("is-none")
+      return;
+    }
+  }
+</script>
