@@ -42,23 +42,62 @@ html, body {
   visibility: hidden;
 }
 
-.searchParent {
+.search-parent {
   position: relative;
 }
 .btn-menu {
   position: absolute;
+  z-index: 3;
   left: 6%;
   top: 10vh;
+  height: 40px;
+  width: 40px;
+  &:hover {
+    background-color: darkorange;
+    border-radius: 50%;
+    box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.5);
+    transform: translateY(-5px);
+    cursor: pointer;
+  }
+  &-search {
+    color: darkorange;
+    &:hover{
+      color: white;
+    }
+  }
 }
-.searchteam {
+
+.search-team {
   position: absolute;
   left: 5%;
-  top: 20vh;
+  top: 17vh;
+  width: 25%;
+  text-align: center;
+  background-color: darkorange;
+  border-radius: 5%;
+  z-index: 3;
+  display: none;
+  transition: .5s;
+  &:hover {
+    font-size: large;
+    text-decoration: dashed;
+  }
 }
-.searchprefecture {
+.search-prefecture {
   position: absolute;
   left: 5%;
-  top: 30vh;
+  top: 25vh;
+  width: 25%;
+  text-align: center;
+  background-color: darkorange;
+  border-radius: 5%;
+  z-index: 3;
+  display: none;
+  transition: .5s;
+  &:hover {
+    font-size: large;
+    text-decoration: dashed;
+  }
 }
 
 #tinderslide {
