@@ -11,10 +11,10 @@
       <li class="messageIcon"><%= link_to(content_tag(:i, "", class:'fas fa-2x fa-2x fa-comments'), matching_index_path) %></li>
     </ul>
   </nav>
-    <div class="searchParent">
-      <div class="btn-menu"><i class="fas fa-search fa-2x"></i></div>
-      <div class="searchteam"><%= link_to 'あなたと好きなチームが同じ人を表示', search_team_users_path %></div>
-      <div class="searchprefecture"><%= link_to 'あなたと登録した都道府県が同じ人を表示', search_prefecture_users_path %></div>
+    <div class="search-parent">
+      <div class="btn-menu"><i class="fas fa-search fa-2x btn-menu-search"></i></div>
+      <div class="search-team"><%= link_to 'あなたと好きなチームが同じ人を表示', search_team_users_path, style:'color: white;'%></div>
+      <div class="search-prefecture"><%= link_to 'あなたと登録した都道府県が同じ人を表示', search_prefecture_users_path, style:'color: white;' %></div>
     </div>
   <div id="tinderslide">
     <ul>
