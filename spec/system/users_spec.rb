@@ -80,7 +80,7 @@ require 'rails_helper'
 #         fill_in 'メールアドレス', with: @user.email
 #         fill_in 'パスワード', with: @user.password
 #         find('input[name="commit"]').click
-#         expect(page).to have_content('ログアウト') 
+#         expect(page).to have_content('ログアウト')
 #         expect(page).to have_no_content('新規登録')
 #         expect(page).to have_no_content('ログイン')
 #       end
@@ -101,21 +101,20 @@ RSpec.describe 'ログイン', type: :system, js: true do
   before do
     @user = FactoryBot.create(:user)
   end
-    context 'ログインができるとき' do
-      it 'フォローボタンを押すことでユーザーをフォローすることができる。' do
-        visit root_path
-        find('a[href="/home/seek"]').click
-        find('a[href="/users"]').click
-        expect(page).to have_content('ログイン')
-        fill_in 'メールアドレス', with: @user.email
-        fill_in 'パスワード', with: @user.password
-        find('input[name="commit"]').click
-        visit users_path
-        # expect{
-        #     find('a[class="like"]').click
-        #     wait_for_ajax
-        #   }.to change { Reaction.count }.by(1)
-      end
+  context 'ログインができるとき' do
+    it 'フォローボタンを押すことでユーザーをフォローすることができる。' do
+      visit root_path
+      find('a[href="/home/seek"]').click
+      find('a[href="/users"]').click
+      expect(page).to have_content('ログイン')
+      fill_in 'メールアドレス', with: @user.email
+      fill_in 'パスワード', with: @user.password
+      find('input[name="commit"]').click
+      visit users_path
+      # expect{
+      #     find('a[class="like"]').click
+      #     wait_for_ajax
+      #   }.to change { Reaction.count }.by(1)
     end
+  end
 end
-

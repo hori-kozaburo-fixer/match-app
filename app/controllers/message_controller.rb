@@ -11,10 +11,10 @@ class MessageController < ApplicationController
     room_user = RoomUser.find_by(room_id: params[:format])
     @message = Message.new(message: params[:message][:message], room_id: room_user.room_id, user_id: current_user.id)
     @from_user = User.find_by(id: current_user.id)
-    unless @message.message == ""
-      ActionCable.server.broadcast 'message_channel', 
-      content: @message, 
-      from_user: @from_user.nickname 
+    unless @message.message == ''
+      ActionCable.server.broadcast 'message_channel',
+                                   content: @message,
+                                   from_user: @from_user.nickname
       @message.save
     end
   end
