@@ -17,7 +17,7 @@
     </div>
   </div>
 
-  <%= form_with model:@message, url: message_index_path(@room_user), class:"messageInputForm", name: '#{@room_user}' do |f| %>
+  <%= form_with model:@message, url: message_index_path(@room), class:"messageInputForm", name: '#{@room_user}' do |f| %>
     <div class='container'>
       <%= f.text_field :message, class:"messageInputForm_input", placeholder:"メッセージを入力..."%>
       <%= f.button type: :submit do %>
