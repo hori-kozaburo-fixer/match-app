@@ -14,10 +14,9 @@ consumer.subscriptions.create("MessageChannel", {
     const fromName = `<p>${data.from_user}</p>`
     const message = `<p class="d-flex justify-content-center shadow p-3 mb-5 bg-light rounded">${data.content.message}</p>`;
     const messages = document.getElementById('messages');
-    messages.insertAdjacentHTML('beforeend', fromName);
-    messages.insertAdjacentHTML('beforeend', message);
+    messages.insertAdjacentHTML('afterend', message);
+    messages.insertAdjacentHTML('afterend', fromName);
     const newMessage = document.getElementById('message_message');
     newMessage.value='';
-    debugger;
   }
 });
