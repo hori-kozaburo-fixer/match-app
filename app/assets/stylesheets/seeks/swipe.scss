@@ -79,8 +79,8 @@ html, body {
   display: none;
   transition: .5s;
   &:hover {
-    font-size: large;
-    text-decoration: dashed;
+    opacity: 0.8;
+    text-decoration: none;
   }
 }
 .search-prefecture {
@@ -95,8 +95,8 @@ html, body {
   display: none;
   transition: .5s;
   &:hover {
-    font-size: large;
-    text-decoration: dashed;
+    opacity: 0.8;
+    text-decoration: none;
   }
 }
 
