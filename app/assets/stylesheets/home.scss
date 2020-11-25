@@ -164,4 +164,17 @@
       }
     }
   }
+  &_news {
+    margin-top: 10vh;
+    margin-bottom: 5vh;
+    background-color: white;
+    border-radius: 5%;
+    padding: 10px;
+    &_title {
+      text-align: center;
+    }
+    &_text {
+      background-color: #fafad2;
+    }
+  }
 }
