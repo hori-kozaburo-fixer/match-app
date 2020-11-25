@@ -38,5 +38,13 @@
         <a href="https://lin.ee/pHke6nm" class="summary_down_line fab fa-line fa-4x"></a>
       </div>
     </div>
+    <div class="summary_news">
+      <div class="summary_news_title">〜最新NEWS〜</div>
+      <% @elements.each do |e| %>
+        <ul>
+          <li class='summary_news_text'><%= "#{e.inner_text}" %></li>
+        </ul>
+      <% end %>
+    </div>
   </div>
 <%= render 'shared/footer' %>
