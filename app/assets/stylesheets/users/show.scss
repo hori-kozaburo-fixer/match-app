@@ -78,6 +78,14 @@
         }
       }
     }
+    &_already {
+      background-color: darkorange;
+      border-radius: 40%;
+      text-align: center;
+      &_text {
+        color: white;
+      }
+    }
     &_follow {
       position: absolute;
       top: 170px;

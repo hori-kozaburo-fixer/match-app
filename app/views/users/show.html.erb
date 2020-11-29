@@ -19,12 +19,15 @@
           <% end %>
         </div>
       <% else %>
-        <div>
-           <div class='header_follow'>
-          <%= link_to reactions_path(user_id: @user.id, reaction: 'like'), method: :post do %>
-            <div class="fa fa-thumbs-up fa-2x good" style="color: darkorange;"></div>
+          <% if @reaction != [] %>
+            <div class='header_already'><span class="header_already_text">フォロー中</span></div>
+          <% else %>
+            <div class='header_follow'>
+              <%= link_to reactions_path(user_id: @user.id, reaction: 'like'), method: :post do %>
+                <div class="fa fa-thumbs-up fa-2x good" style="color: darkorange;"></div>
+              <% end %>
+            </div>
           <% end %>
-        </div>
       <% end %>
     </header>
     <div class='userInfo'>

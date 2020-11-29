@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @reaction = Reaction.where(to_user_id: @user.id).where(from_user_id: current_user.id)
   end
 
   def follow_team
