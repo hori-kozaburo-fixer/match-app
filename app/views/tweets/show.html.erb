@@ -19,7 +19,7 @@
           <td><%= @team.home %></td>
         </tr>
         <tr>
-          <td class="icon character">マスコット</td>
+          <td class="icon character"></td>
           <td><%= @team.character %></td>
         </tr>
         <tr>
@@ -27,11 +27,11 @@
           <td><%= @team.ranking %></td>
         </tr>
       </table>
-      <div class="tweet_show_map">
-        <input id="address" type="textbox" value="<%= @team.home %>">
-        <input type="button" class="btn btn-outline-success tweet_show_map_button" value="クリック!" onclick="codeAddress()">
-        <div id='map'></div>
-      </div>
+      <%# <div class="tweet_show_map"> %>
+        <%# <input id="address" type="textbox" value="= @team.home"> %>
+        <%# <input type="button" class="btn btn-outline-success tweet_show_map_button" value="クリック!" onclick="codeAddress()"> %>
+        <%# <div id='map'></div> %>
+      <%# </div> %>
     </div>
 
     <div class="row tweet_show_article">
