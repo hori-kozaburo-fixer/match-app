@@ -1,47 +1,48 @@
 <div class="tweet_show">
-  <%= render 'shared/header'%>                 
-    <div class="container">
-      <div class="row tweet_show_team">
-        <%= image_tag "#{@team.image}", class:"img-fluid tweet_show_team_logo", size:"150x150" %>
-      </div>
-      <div class="tweet_show_table">
-        <table>
-          <tr>
-            <th>チーム名</th>
-            <th><%= @team.name%></th>
-          </tr>
-          <tr>
-            <td class="icon coach">ヘッドコーチ👨</td>
-            <td><%= @team.coach %></td>
-          </tr>
-          <tr>
-            <td class="icon home">本拠地🗾</td>
-            <td><%= @team.home %></td>
-          </tr>
-          <tr>
-            <td class="icon character">キャラクター</td>
-            <td><%= @team.character %></td>
-          </tr>
-          <tr>
-            <td class="icon ranking">順位</td>
-            <td><%= @team.ranking %></td>
-          </tr>
-        </table>
-        <div class="tweet_show_map">
-          <input id="address" type="textbox" value="<%= @team.home %>">
-          <input type="button" class="btn btn-outline-success tweet_show_map_button" value="クリック!" onclick="codeAddress()">
-          <div id='map'></div>
-        </div>
-      </div>
-
-      <div class="row tweet_show_article">
-        <% @tweets.each do |tweet| %>
-          <div class="tweet_show_article_each">
-            <%= render partial: 'shared/tweet',locals:{tweet:tweet} %>
-          </div>
-        <% end %>
+<%= render 'shared/header'%>                 
+  <div class="container">
+    <div class="row tweet_show_team">
+      <%= image_tag "#{@team.image}", class:"img-fluid tweet_show_team_logo", size:"150x150" %>
+    </div>
+    <div class="tweet_show_table">
+      <table>
+        <tr>
+          <th>チーム名</th>
+          <th><%= @team.name%></th>
+        </tr>
+        <tr>
+          <td class="icon coach">ヘッドコーチ👨</td>
+          <td><%= @team.coach %></td>
+        </tr>
+        <tr>
+          <td class="icon home">本拠地🗾</td>
+          <td><%= @team.home %></td>
+        </tr>
+        <tr>
+          <td class="icon character">キャラクター</td>
+          <td><%= @team.character %></td>
+        </tr>
+        <tr>
+          <td class="icon ranking">順位</td>
+          <td><%= @team.ranking %></td>
+        </tr>
+      </table>
+      <div class="tweet_show_map">
+        <input id="address" type="textbox" value="<%= @team.home %>">
+        <input type="button" class="btn btn-outline-success tweet_show_map_button" value="クリック!" onclick="codeAddress()">
+        <div id='map'></div>
       </div>
     </div>
+
+    <div class="row tweet_show_article">
+      <% @tweets.each do |tweet| %>
+        <div class="tweet_show_article_each">
+          <%= render partial: 'shared/tweet',locals:{tweet:tweet} %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 <script>
 let map
@@ -78,5 +79,3 @@ function codeAddress(){
 }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6maqMN_sHGgta73vNZim4-ofbLnEGCXg&callback=initMap" async defer></script>
-
-</div>
