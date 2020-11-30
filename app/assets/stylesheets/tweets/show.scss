@@ -1,13 +1,61 @@
+@keyframes bound-anim {
+  0%,100% {top: 0;transform: scale(1);}
+  30% {top: -60%; transform: scale(0.96,1.04);}
+  60% {transform: scale(1);}
+  90% {top: 0;transform: scale(1.15,0.9);}
+}
+
 .tweet_show {
   height: 90vh;
   &_team {
     top: 20px;
-    height: 20vh;
+    height: 15vh;
     width: 100%;
     position: relative;
     &_logo {
       position: absolute;
-      left: 44%;
+      text-align: center;
+    }
+  }
+  &_table {
+    display: flex;
+    justify-content: flex-start;
+    margin: 5vh 0;
+    table{
+      border-collapse: collapse;
+      border-spacing: 0;
+      width: 50%;
+    }
+    table tr{
+      border-bottom: solid 1px #eee;
+      cursor: pointer;
+    }
+    table tr:hover{
+      background-color: #FCC765;
+    }
+    table th,table td{
+      text-align: center;
+      width: 25%;
+      padding: 15px 0;
+    }
+    table td.icon{
+      background-size: 35px;
+      background-position: left 5px center;
+      background-repeat: no-repeat;
+      padding-left: 30px;
+    }
+  }
+  &_map {
+    margin-left: 5%;
+    text-align: center;
+    &_button {
+      animation: bound-anim 1s infinite;
+    }
+
+    #map {
+      margin-top: 10px;
+      height: 90%;
+      width: 150%;
     }
   }
   &_article {
@@ -17,4 +65,5 @@
       margin-bottom: 40px;
     }
   }
+ 
 }
