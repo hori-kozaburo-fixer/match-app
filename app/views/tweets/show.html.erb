@@ -4,6 +4,36 @@
       <div class="row tweet_show_team">
         <%= image_tag "#{@team.image}", class:"img-fluid tweet_show_team_logo", size:"150x150" %>
       </div>
+      <div class="tweet_show_table">
+        <table>
+          <tr>
+            <th>チーム名</th>
+            <th><%= @team.name%></th>
+          </tr>
+          <tr>
+            <td class="icon coach">ヘッドコーチ👨</td>
+            <td><%= @team.coach %></td>
+          </tr>
+          <tr>
+            <td class="icon home">本拠地🗾</td>
+            <td><%= @team.home %></td>
+          </tr>
+          <tr>
+            <td class="icon character">キャラクター</td>
+            <td><%= @team.character %></td>
+          </tr>
+          <tr>
+            <td class="icon ranking">順位</td>
+            <td><%= @team.ranking %></td>
+          </tr>
+        </table>
+        <div class="tweet_show_map">
+          <input id="address" type="textbox" value="<%= @team.home %>">
+          <input type="button" class="btn btn-outline-success tweet_show_map_button" value="クリック!" onclick="codeAddress()">
+          <div id='map'></div>
+        </div>
+      </div>
+
       <div class="row tweet_show_article">
         <% @tweets.each do |tweet| %>
           <div class="tweet_show_article_each">
@@ -12,4 +42,41 @@
         <% end %>
       </div>
     </div>
+
+<script>
+let map
+let geocoder
+const display = document.getElementById('display')
+function initMap(){
+  geocoder = new google.maps.Geocoder()
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 35.66657694757677, lng: 139.698588417325 },
+    zoom: 12,
+  });
+
+  marker = new google.maps.Marker({
+    position:  {lat: 35.66657694757677, lng:139.698588417325 },
+    map: map
+  });
+}
+
+function codeAddress(){
+  let inputAddress = document.getElementById('address').value;
+
+  geocoder.geocode( { 'address': inputAddress}, function(results, status) {
+    if (status == 'OK') {
+      map.setCenter(results[0].geometry.location);
+      var marker = new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location
+      });
+      display.textContent = "検索結果：" + results[ 0 ].geometry.location
+    } else {
+      alert('該当する結果がありませんでした：' + status);
+    }
+  });   
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6maqMN_sHGgta73vNZim4-ofbLnEGCXg&callback=initMap" async defer></script>
+
 </div>
