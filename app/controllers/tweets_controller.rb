@@ -3,7 +3,7 @@ class TweetsController < ApplicationController
 
   def show
     @team = Team.find(params[:id])
-    @tweets = Tweet.where(team_id: @team.id)
+    @tweets = Tweet.where(team_id: @team.id).includes(:user)
   end
 
   def new
@@ -44,7 +44,7 @@ class TweetsController < ApplicationController
   def discussion
     @tweet = Tweet.find(params[:id])
     @comment = Comment.new
-    @comments = Comment.where(tweet_id: @tweet.id)
+    @comments = Comment.where(tweet_id: @tweet.id).includes(:user)
   end
 
   def search
